@@ -48,6 +48,7 @@ for (let it = 0; it < CONFIG.iterations; it++) {
         draws.push({draw, quality: avg * Math.max.apply(Math, parallels), parallels, gamesVs});
 
     } catch (error) {
+        // you can do something with the errors if you want
         failedDraws++;
     }
 }
