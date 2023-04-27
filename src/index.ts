@@ -22,8 +22,6 @@ for (let it = 0; it < CONFIG.iterations; it++) {
             draw.push(new Array(houseCount));
         }
 
-        gamesVs = new Array(playerIds.length);
-
         for (let i = 0; i < draw.length; i++) {
             let parallel = 0;
             let finalGamesVs = null;
