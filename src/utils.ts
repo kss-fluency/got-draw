@@ -1,6 +1,6 @@
 import {House} from "./types";
 
-export const chooseBestGame = (id: number, house: House, playersCount: number, draw: number[][]): {game: number, parallelCount: number, gamesVs: number[]} => {
+export const calculateNumberOfGamesVs = (id:number , playersCount: number, draw: number[][]): number[] => {
     const numberOfGamesVs: number[] = new Array(playersCount).fill(0);
 
     for (let i = 0; i < draw.length; i++) {
@@ -11,6 +11,12 @@ export const chooseBestGame = (id: number, house: House, playersCount: number, d
             }
         }
     }
+
+    return numberOfGamesVs;
+};
+
+export const chooseBestGame = (id: number, house: House, playersCount: number, draw: number[][]): number => {
+    const numberOfGamesVs = calculateNumberOfGamesVs(id, playersCount, draw);
 
     let order = Array.from(Array(draw.length).keys())
     order = shuffle(order);
@@ -37,7 +43,7 @@ export const chooseBestGame = (id: number, house: House, playersCount: number, d
 
             if (acceptableParallelCount) {
                 // console.log(`found a game ${order[i]} for ${id} with max ${acceptableParallelGames} parallels`);
-                return { game: order[i], parallelCount: acceptableParallelGames, gamesVs: numberOfGamesVs };
+                return order[i];
             }
         }
     }
@@ -50,7 +56,7 @@ export const findIndexOfMax = (array: number[]): number => {
 }
 
 export const shuffle = (array: any[]): any[] => {
-    let currentIndex = array.length,  randomIndex;
+    let currentIndex = array.length, randomIndex;
 
     // While there remain elements to shuffle.
     while (currentIndex != 0) {
@@ -69,10 +75,10 @@ export const shuffle = (array: any[]): any[] => {
 
 export const printGames = (games: number[][], players: string[]) => {
     for (let i = 0; i < games.length; i++) {
-    console.log(`Game ${i}:\n`);
-    for (let j = 0; j < games[i].length; j++) {
-        console.log(`${players[games[i][j]]} plays ${House[j]}`);
+        console.log(`Game ${i}:\n`);
+        for (let j = 0; j < games[i].length; j++) {
+            console.log(`${players[games[i][j]]} plays ${House[j]}`);
+        }
+        console.log('__________');
     }
-    console.log('__________');
-}
 }
