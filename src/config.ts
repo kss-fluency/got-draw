@@ -1,0 +1,37 @@
+import {House} from "./types";
+
+export const CONFIG = {
+    playerIds: [
+        'LoPHH',
+        'Wu_Linyi',
+        'xyc7396333',
+        'zhanghe',
+        'damrej',
+        'samuel',
+        'spartan109',
+        'Kamcyk',
+        'Dexolin',
+        'congyijushi',
+        'abbadon123',
+        'Zesty18',
+        'mokka1994',
+        'Stefano',
+        'wick',
+        'Sean_Snow',
+        'msold87',
+        'Duomaxwell',
+        'mafiagustawa',
+        'hfvghvhjhb',
+        'Mr.Clyde',
+        'Joao Gomes',
+        'godgreen',
+        'Gordalicious',
+        'TONY-BENZEMA',
+        'PawcioF',
+        'We_do_not_sow',
+        'Canutops',
+        'Shade89',
+        'purplecloud1985',
+    ],
+    iterations: 10000
+};
