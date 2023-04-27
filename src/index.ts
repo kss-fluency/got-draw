@@ -1,4 +1,4 @@
-import {House} from "./types";
+import {Draw, House} from "./types";
 import {chooseBestGame, findIndexOfMax, printGames, shuffle} from "./utils";
 import {CONFIG} from "./config";
 
@@ -8,17 +8,15 @@ const houseCount = Object.keys(House).length / 2;
 console.log(`Calculating for ${playerIds.length} players. I will try ${CONFIG.iterations} times to optimise...`);
 console.log(`Player IDs: ${JSON.stringify(playerIds)}`);
 
-let draw: number[][] = [];
-let parallels: number[] = [];
-let gamesVs = new Array(playerIds.length);
 
-let draws: { draw: number[][], quality: number, parallels: number[], gamesVs: number[][] }[] = [];
+let draws: Draw[] = [];
 let failedDraws = 0;
 
 for (let it = 0; it < CONFIG.iterations; it++) {
     try {
-        draw = [];
-        parallels = [];
+        let draw = [];
+        let parallels = [];
+        let gamesVs = new Array(playerIds.length);
 
         for (let i = 0; i < playerIds.length; i++) {
             draw.push(new Array(houseCount));
