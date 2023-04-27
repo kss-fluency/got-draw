@@ -82,7 +82,11 @@ console.log(`at worst, a player will play another player in ${Math.max.apply(Mat
 const worstId = findIndexOfMax(chosenDraw.parallels);
 const worstEnemy = findIndexOfMax(chosenDraw.gamesVs[worstId]);
 console.log(`for example, player ${playerIds[worstId].name} plays ${chosenDraw.parallels[worstId]} games against ${playerIds[worstEnemy].name}`);
-console.log(`you can check that in his games:`);
-printGames(chosenDraw.draw.filter(game => game.includes(worstId)), playerIds.map(id => id.name));
-console.log(`avg parallels for a chosen draw is ${avg}!`);
+// console.log(`you can check that in his games:`);
+// printGames(chosenDraw.draw.filter(game => game.includes(worstId)), playerIds.map(id => id.name));
+console.log(`number of times given player plays with subsequent opponent:`);
+playerIds.forEach(playerId => {
+    console.log(`${playerId.name}: ${chosenDraw.gamesVs[playerId.id]}`);
+});
+console.log(`avg worst case parallels for a chosen draw is ${avg}!`);
 console.log(`I failed ${failedDraws} out of ${CONFIG.iterations} draws`);
