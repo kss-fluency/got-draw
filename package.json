@@ -1,0 +1,19 @@
+{
+  "name": "got-draw",
+  "version": "1.0.0",
+  "description": "Draw for Game of Thrones: Board Game tournament",
+  "main": "index.ts",
+  "scripts": {
+    "simulate": "ts-node index.ts"
+  },
+  "repository": "git@github.com:kss-fluency/got-draw.git",
+  "author": "krzysztof.spisak.spisacki@gmail.com",
+  "license": "MIT",
+  "dependencies": {
+    "@types/node": "^18.16.1",
+    "typescript": "^5.0.4"
+  },
+  "devDependencies": {
+    "ts-node": "^10.9.1"
+  }
+}
